@@ -1,0 +1,35 @@
+Testing ALU:
+PASS: tests\unit-alu\alu-add.circ
+PASS: tests\unit-alu\alu-all.circ
+PASS: tests\unit-alu\alu-logic.circ
+PASS: tests\unit-alu\alu-mult.circ
+PASS: tests\unit-alu\alu-shift.circ
+PASS: tests\unit-alu\alu-slt-sub-bsel.circ
+Passed 6/6 tests
+
+Testing RegFile:
+FAIL: tests\unit-regfile\regfile-more-regs.circ (Did not match expected output)
+             Time WriteIdx ReadIdx1 ReadIdx2 RegWEn WriteData ra (x1)  sp (x2)  t0 (x5)  t1 (x6)  t2 (x7)  s0 (x8)  s1 (x9)  a0 (x10) ReadData1 ReadData2
+  Reference: 09   1f       04       0a       1      28888292  ffffbeef 00000dad fffff00d 00005678 0afdfadf ffffffff a786adc2 98a09723 df89a0ae  98a09723
+  Student:   09   1f       04       0a       1      28888292  ffffbeef 00000dad fffff00d 00005678 0afdfadf ffffffff a786adc2 98a09723 UUUUUUUU  98a09723
+  ---
+  Reference: 0a   14       1f       04       1      00000000  ffffbeef 00000dad fffff00d 00005678 0afdfadf ffffffff a786adc2 98a09723 28888292  df89a0ae
+  Student:   0a   14       1f       04       1      00000000  ffffbeef 00000dad fffff00d 00005678 0afdfadf ffffffff a786adc2 98a09723 UUUUUUUU  UUUUUUUU
+  ---
+  Reference: 0b   00       14       1f       0      00000000  ffffbeef 00000dad fffff00d 00005678 0afdfadf ffffffff a786adc2 98a09723 00000000  28888292
+  Student:   0b   00       14       1f       0      00000000  ffffbeef 00000dad fffff00d 00005678 0afdfadf ffffffff a786adc2 98a09723 UUUUUUUU  UUUUUUUU
+  ---
+PASS: tests\unit-regfile\regfile-read-only.circ
+PASS: tests\unit-regfile\regfile-read-write.circ
+FAIL: tests\unit-regfile\regfile-x0.circ (Did not match expected output)
+             Time WriteIdx ReadIdx1 ReadIdx2 RegWEn WriteData ra (x1)  sp (x2)  t0 (x5)  t1 (x6)  t2 (x7)  s0 (x8)  s1 (x9)  a0 (x10) ReadData1 ReadData2
+  Reference: 03   00       0c       00       0      00005678  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000  00000000
+  Student:   03   00       0c       00       0      00005678  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 UUUUUUUU  00000000
+  ---
+Passed 2/4 tests
+
+Testing addi:
+PASS: tests\integration-addi\addi-basic.circ
+PASS: tests\integration-addi\addi-negative.circ
+PASS: tests\integration-addi\addi-positive.circ
+Passed 3/3 tests
